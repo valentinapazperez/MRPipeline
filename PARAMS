@@ -1,0 +1,10 @@
+####
+#Use this file to include the location of your quality controlled UKB 
+#Data in BGEN format, where you want the extracted SNPs to be exported 
+#to and the path location of the SNP list 
+###
+
+UKB_QC="/shared/ucl/depts/UKBiobank-500K-Full-Release-2018QC/UKB-QC/data_files/eur"
+out_dir="/home/zcbtalz/Scratch/MR_pipeline/"
+snp_list="/home/zcbtalz/Scratch/IGF_project/IGFBP_3_SNPs/SNPs_IGFBP-3_unix2.txt"
+
