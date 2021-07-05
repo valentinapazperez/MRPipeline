@@ -1,12 +1,13 @@
 #!/bin/bash
+#Get location of QC Data, snp_list and out_directory 
+#from PARAMS file 
+source PARAMS
 
-UKB_QC="/shared/ucl/depts/UKBiobank-500K-Full-Release-2018QC/UKB-QC/data_files/eur"
-out_dir="/lustre/scratch/scratch/rmjlaga/RH_MR_MSc_project/Tests_VGVP"
-snp_list="/lustre/scratch/scratch/rmjlaga/RH_MR_MSc_project/Tests_VGVP/cad_snps"
 
+#Make output directory if required. Doesnt thow error if not present 
 mkdir -p $out_dir
-#rm ${out_dir}/*.gen
 
+#Loop through chomosomes in QC data 
 for i in {1..22}; do
         /shared/ucl/apps/bgen/1.1.4/bin/bgenix \
         -g ${UKB_QC}/C${i}_ukbb_v3_eur_indiv_variant_qc.bgen \
@@ -18,10 +19,12 @@ for i in {1..22}; do
 
         #concatenate gen files into merged file
         if [ -f ${out_dir}/CHR${i}_extracted_snps.gen ] ; then
-                cat ${out_dir}/CHR${i}_extracted_snps.gen >> ${snp_list}_ALL.gen  
-		awk '{$2=""; print $0}' ${snp_list}_ALL.gen >> ${snp_list}_FINAL.gen
-	rm ${snp_list}_ALL.gen
-	rm ${out_dir}/CHR${i}_extracted_snps.gen	
+                cat ${out_dir}/CHR${i}_extracted_snps.gen >> ${out_dir}/extracted_SNPs_plus_col.gen  
+		awk '{$2=""; print $0}' ${out_dir}/extracted_SNPs_plus_col.gen >> ${out_dir}/extracted_snps.gen	
 
-        fi
+	#Remove irrelevant files
+       	rm ${out_dir}/extracted_SNPs_plus_col.gen
+       	rm ${out_dir}/CHR${i}_extracted_snps.gen
+
+        fi 
 done
