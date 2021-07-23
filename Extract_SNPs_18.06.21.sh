@@ -8,16 +8,39 @@ source PARAMS
 #output is "extracted_snps"
 output_name=extracted_snps
 
+function Help () {
+        # Display Help
+        echo "The extractSNP program symplifies the extraction of SNPs from UKB data. SNPs can be extracted as .gen or .bgen files."
+        echo
+        echo "Syntax: extractSNP <options>"
+        echo "options:"
+        echo "-s <a>:     (Optional) Path of SNP list to operate on. The SNP list needs to be a text file with one SNP ID per line. Including this argument will override any default SNP list defined in the PARAMS file."
+        echo 
+	echo "-h:         Print this Help."
+        echo 
+	echo "-b:         Specify that extractSNP should output extracted SNPs in a .bgen format. The user must select either the -b flag or the -g flag (or both)."
+        echo 
+	echo "-g:         Specify that extractSNP should output extracted SNPs in a .gen format. The user must select either the -b flag or the -g flag (or both)."
+        echo 
+	echo "-o <a>:     (Optional) Path to output directory. Including this argument will override any default defined in the PARAMS file."
+        echo
+	echo "-n <a>:     (Optional) name for output file. Including this argument will override any default defined in the PARAMS file."
+        echo
+}
+
 
 #Get arguments for function
 #Arguments include -s for location of snplist file, b for bgen output, g
 #for gen output, -o for output directory, -n for name of output
 
 
-while getopts "s:bgo:n:" flag
+while getopts "s:bgho:n:" flag
 do
 
         case "${flag}" in
+		h) #Display help 
+			Help
+			exit;; 
                 s) snp_list=${OPTARG} #enter snplist location
                         ;;
                 b) bgen=1 #output bgen file
@@ -29,10 +52,12 @@ do
                 n) output_name=${OPTARG} #set file name
                         ;;
                 \?) echo "ERROR: Invalid option: -$OPTARG"
-                        exit 1
+                        echo "use the -h flag to see the help page"
+			exit 1
                         ;;
                 :) echo "ERROR: Option -$OPTARG requires an argument."
-                        exit 1
+                        echo "use the -h flag to see the help page"
+			exit 1
                         ;;
 
                 esac
