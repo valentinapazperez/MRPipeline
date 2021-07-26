@@ -45,32 +45,6 @@
 </details>
 
 
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
-### Built With
-
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
-
-
 <!-- Getting Started -->
 ## Getting Started
 
@@ -83,22 +57,49 @@ The git package is required to clone the repository onto your local machine. The
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repo into your PATH directory (usually ~/bin). If you don't know how to set up your PATH, please see the following [guide](https://opensource.com/article/17/6/set-path-linux)
    ```sh
    git clone https://github.com/asalzy/MRPipeline
    ```
-2. Set location of UKB data in PARAMS. You can also add a default output directory and SNP list. Otherwise, these can be included in the command using the -o and -s flags, respectively. 
+2. Copy the executable file 'extractSNP' into the PATH directory 
+   ```sh
+   #Run this command from inside the MRPipeline folder 
+   cp extractSNP ..
+   ```
+3. Set location of directory containing UKB data in PARAMS. You can also add a default output directory and SNP list. Otherwise, these can be included in the command using the -o and -s flags, respectively. 
    ```sh
    nano PARAMS
    ```
+   
+<p align="left">
+  <a href="https://i.ibb.co/xznQYZ1/Screenshot-2021-07-23-at-18-45-24.png">
+    <img src="https://i.ibb.co/xznQYZ1/Screenshot-2021-07-23-at-18-45-24.png" alt="Logo" width="800" height="400">
+  </a>
+</p>
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This section will present how one can extract SNPs using the extractSNP function. Here the location of the snp list and output directory are included in the command line. However, this can also be included as a default in the PARAM file, for example if you want all your results to be outputted to a certain folder by default. 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+  ``sh 
+  extractSNP -b -o path/to/output/directory -s path/to/snplist -n nameOfOutputFile 
+  `` 
+  
+### Help file 
+
+You can find the help page by using the -h flag
+
+  ``sh 
+  extractSNP -h 
+  ``
+
+<p align="left">
+  <a href="https://i.ibb.co/s63drWn/Screenshot-2021-07-23-at-19-12-47.png">
+    <img src="https://i.ibb.co/s63drWn/Screenshot-2021-07-23-at-19-12-47.png" alt="Logo" width="800" height="400">
+  </a>
+</p>
 
 
 
