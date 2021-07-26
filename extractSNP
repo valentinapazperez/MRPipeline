@@ -1,7 +1,17 @@
 #!/bin/bash
 #Get location of QC Data, snp_list and out_directory
 #from PARAMS file and other default arguments
-source ./PARAMS
+dir_path="$(dirname $(realpath $0))/PARAMS"
+echo "Looking for PARAMS file in $dir_path"
+
+if [ -f $dir_path ]; then
+	echo "Found PARAMS file"
+	source $dir_path
+else
+	echo "Could not find PARAMS file - Please follow installtion instructions on github"
+	exit 1 
+fi
+
 
 #Default values for arguments
 #by default the output produced is a genotype and the name of the
@@ -32,7 +42,8 @@ function Help () {
 #Get arguments for function
 #Arguments include -s for location of snplist file, b for bgen output, g
 #for gen output, -o for output directory, -n for name of output
-
+bgen=0
+gen=0
 
 while getopts "s:bgho:n:" flag
 do
@@ -64,9 +75,16 @@ do
 
 done
 
+#Check that either -g or -b flag is present 
+if [ $gen = 0 ] && [ $bgen = 0 ]; then
+echo "You need to include either the -b (bgen) or -g (gen) flag (or both)"
+fi
 
 #Make output directory if required. Doesnt thow error if not present
 mkdir -p $out_dir
+
+
+
 
 #If asking for genotype output
 if [ $gen = 1 ]; then
