@@ -1,7 +1,7 @@
 #!/bin/bash
 #Get location of QC Data, snp_list and out_directory
 #from PARAMS file and other default arguments
-source PARAMS
+source ./PARAMS
 
 #Default values for arguments
 #by default the output produced is a genotype and the name of the
