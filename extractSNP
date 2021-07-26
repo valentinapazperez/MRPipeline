@@ -1,8 +1,8 @@
 #!/bin/bash
 #Get location of QC Data, snp_list and out_directory
 #from PARAMS file and other default arguments
-dir_path="$(dirname $(realpath $0))/PARAMS"
-echo "Looking for PARAMS file in $dir_path"
+dir_path="$(dirname $(realpath $0))/MRPipeline/PARAMS"
+echo "Looking for PARAMS file in $dir_path..."
 
 if [ -f $dir_path ]; then
 	echo "Found PARAMS file"
