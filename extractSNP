@@ -1,9 +1,18 @@
 #!/bin/bash
+
+#Default values for arguments
+#by default the output produced is a genotype and the name of the
+#output is "extracted_snps"
+#These will be overwritten by anything in the PARAMS file 
+#or argument flags in the command line
+
+output_name=extracted_snps
+out_dir=.
+
 #Get location of QC Data, snp_list and out_directory
 #from PARAMS file and other default arguments
 dir_path="$(dirname $(realpath $0))/MRPipeline/PARAMS"
 echo "Looking for PARAMS file in $dir_path..."
-
 if [ -f $dir_path ]; then
 	echo "Found PARAMS file"
 	source $dir_path
@@ -11,12 +20,6 @@ else
 	echo "Could not find PARAMS file - Please follow installtion instructions on github"
 	exit 1 
 fi
-
-
-#Default values for arguments
-#by default the output produced is a genotype and the name of the
-#output is "extracted_snps"
-output_name=extracted_snps
 
 function Help () {
         # Display Help
