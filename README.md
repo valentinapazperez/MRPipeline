@@ -59,11 +59,11 @@ The git package is required to clone the repository onto your local machine. The
  
 Before using this git package is required to install bgenix. Bgenix is a tool to create an index of variants in a bgen file and use that index for efficient data retrieval for specific variants or regions. 
  
-Please see the following [webpage](https://enkre.net/cgi-bin/code/bgen/dir?ci=trunk) to obtain and install bgenix. For more information see [link](https://enkre.net/cgi-bin/code/bgen/doc/trunk/doc/wiki/bgenix.md)
+Please see the following [webpage](https://enkre.net/cgi-bin/code/bgen/dir?ci=trunk) to obtain and install bgenix. For more information click [here](https://enkre.net/cgi-bin/code/bgen/doc/trunk/doc/wiki/bgenix.md)
 
 ## QCtool installation
  
-QCtool is also necessary before using this git package. QCtool is a command-line utility program for manipulation and quality control of GWAS datasets and other genome-wide data. Please see the following [webpage](https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/download.html) to obtain and install QCtool. For more information see [link](https://www.well.ox.ac.uk/~gav/qctool_v2/)
+QCtool is also necessary before using this git package. QCtool is a command-line utility program for manipulation and quality control of GWAS datasets and other genome-wide data. Please see the following [webpage](https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/download.html) to obtain and install QCtool. For more information click [here](https://www.well.ox.ac.uk/~gav/qctool_v2/)
 
 ## Usage
 
