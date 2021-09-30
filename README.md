@@ -24,6 +24,8 @@
 The code and associated files for the program are hosted on github, where they are regularly updated. This program only works with UKB data separated into individual chromosomes with names matching the following pattern -         
 __"C\[1-22]\_ukbb_v3_eur_indiv_variant_qc_bgen.__
 
+In order to use the package, it is also required to have an SNP list in a text file (.txt). Every SNP needs to be in a different row in the first column of the file (without a header). 
+
 ### Prerequisites
 
 The git package is required to clone the repository onto your local machine. The installation of git onto your bash profile has been described in great detail in [this guide](https://www.atlassian.com/git/tutorials/install-git). 
@@ -52,6 +54,17 @@ The git package is required to clone the repository onto your local machine. The
 
 
 <!-- USAGE EXAMPLES -->
+
+## Bgenix installation
+ 
+Before using this git package is required to install bgenix. Bgenix is a tool to create an index of variants in a bgen file and use that index for efficient data retrieval for specific variants or regions. 
+ 
+Please see the following [webpage](https://enkre.net/cgi-bin/code/bgen/dir?ci=trunk) to obtain and install bgenix. For more information see [webpage](https://enkre.net/cgi-bin/code/bgen/doc/trunk/doc/wiki/bgenix.md)
+
+## QCtool installation
+ 
+QCtool is also necessary before using this git package. QCtool is a command-line utility program for manipulation and quality control of GWAS datasets and other genome-wide data. Please see the following [webpage](https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/download.html) to obtain and install QCtool. The recommended version is v2.0.1. For more information see [webpage](https://www.well.ox.ac.uk/~gav/qctool_v2/)
+
 ## Usage
 
 This section will present how one can extract SNPs using the extractSNP function. Here the location of the snp list and output directory are included in the command line. However, this can also be included as a default in the PARAM file, for example if you want all your results to be outputted to a certain folder by default. 
